@@ -1,4 +1,4 @@
-class Dashboard::Admin::ItemsController < Dashboard::Admin::
+class Dashboard::Admin::ItemsController < Dashboard::Admin::AdminController
 
 
 

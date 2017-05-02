@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>產品列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>名稱</th>
+      <th>價格</th>
+      <th>管理</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td>
+          <%= link_to '編輯', edit_item_path(item) %>
+          <%= link_to '刪除', item, method: :delete, data: { confirm: '你確定嗎?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新增產品', new_dashboard_admin_item_path%>

@@ -1,0 +1,9 @@
+<h1>Editing Item</h1>
+
+
+<%= form_for(@item, dashboard_admin_item_path, :method => 'patch') do |f| %>
+  名稱<%= f.text_field :name %>
+  價格<%= f.number_field :price %>
+  <button type="submit">送出</button>
+
+<% end %>
