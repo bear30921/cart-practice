@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502061023) do
+ActiveRecord::Schema.define(version: 20170502062032) do
+
+  create_table "cates", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "status",     limit: 1,     default: 0, null: false
+    t.string   "name",       limit: 255
+    t.integer  "price",      limit: 4
+    t.text     "descript",   limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "delete_at"
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string   "email",              limit: 255, default: "", null: false
@@ -21,6 +38,23 @@ ActiveRecord::Schema.define(version: 20170502061023) do
   end
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id", limit: 4, null: false
+    t.integer "item_id",  limit: 4, null: false
+    t.integer "user_id",  limit: 4, null: false
+    t.integer "price",    limit: 4, null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "status",     limit: 1, default: 0, null: false
+    t.integer  "total",      limit: 4, default: 0, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",              limit: 255, default: "", null: false
