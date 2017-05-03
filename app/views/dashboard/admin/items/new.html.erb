@@ -2,7 +2,7 @@
 
 
 <%= form_for(@item, dashboard_admin_items_path, :method => 'post') do |f| %>
-  名稱<%= f.text_field :name %>
-  價格<%= f.number_field :price %>
+  名稱<%= f.text_field :name %> <br>
+  價格<%= f.number_field :price %> <br>
   <button type="submit">送出</button>
 <% end %>

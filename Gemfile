@@ -23,6 +23,7 @@ gem 'awesome_print'
 gem 'rails-pry'
 gem 'devise'
 gem 'paperclip'
+gem 'faker'
 
 
 # Use jquery as the JavaScript library
