@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :cates
 
-  resources :items
+  resources :items do
+    member do
+      get :add_cart
+    end
+  end
 
   devise_for :managers
   devise_for :users
